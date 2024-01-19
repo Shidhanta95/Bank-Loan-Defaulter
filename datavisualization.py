@@ -21,6 +21,7 @@ def data_visualization():
         data[column] = labelencoder.fit_transform(data[column])
         print(data[column])
     col=list(data.columns)
+    
     col.remove("Loan Status")
     print(col)
     for i in col:
