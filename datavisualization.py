@@ -12,9 +12,8 @@ import plotly.io as pio
 import io
 from PIL import Image
 a =[]
-data = feature_engineering()
 def data_visualization():
-    # data.drop(['OTI_A','OTI_T','WTI'], axis=1,inplace=True)
+    data = feature_engineering()
     col=list(data.columns)
     col.remove("Loan Status")
     print(col)

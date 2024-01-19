@@ -7,7 +7,7 @@ def feature_engineering():
     labelencoder = LabelEncoder()
     for column in cols:
         data[column] = labelencoder.fit_transform(data[column])
-    data = data.to_csv("clean_artifact.csv", index=False)
+    data.to_csv("clean_artifact.csv", index=False)
     print(data)
     return data
 feature_engineering()
