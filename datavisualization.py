@@ -1,4 +1,4 @@
-from feature_engineering import feature_engineering 
+from data_preprocessing import data_preprocess
 import pandas as pd
 import plotly.express as px
 from IPython.display import Image
@@ -10,10 +10,16 @@ import seaborn as sns
 import plotly.figure_factory as ff
 import plotly.io as pio
 import io
+from sklearn.preprocessing import LabelEncoder
 from PIL import Image
 a =[]
 def data_visualization():
-    data = feature_engineering()
+    data = data_preprocess()
+    cols = ['Grade','Sub Grade','Verification Status','Loan Title','Application Type','Initial List Status']
+    labelencoder = LabelEncoder()
+    for column in cols:
+        data[column] = labelencoder.fit_transform(data[column])
+        print(data[column])
     col=list(data.columns)
     col.remove("Loan Status")
     print(col)
@@ -29,7 +35,7 @@ def data_visualization():
     for i in col:
         fig = ff.create_distplot([data[i].values],group_labels=[i])
         fig.update_layout(template='plotly_dark')
-        fig.update_layout(plot_bgcolor = "plotly_dark")
+        #fig.update_layout(plot_bgcolor = "plotly_dark")
         fig.update_xaxes(showgrid=False,zeroline=False)
         fig.update_yaxes(showgrid=False,zeroline=False)
         fig.show()
