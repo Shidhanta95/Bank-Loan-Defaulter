@@ -7,8 +7,10 @@ warnings.filterwarnings("ignore")
 import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
+import kaleido
 import plotly.figure_factory as ff
 import plotly.io as pio
+
 import io
 from sklearn.preprocessing import LabelEncoder
 from PIL import Image
